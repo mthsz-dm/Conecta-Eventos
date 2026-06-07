@@ -1,0 +1,16 @@
+@startuml
+
+actor Organizador
+
+participant "Sistema" as Sistema
+database "Banco de Dados" as BD
+
+Organizador -> Sistema : Informar dados do evento
+Sistema -> Sistema : Validar informações
+
+Sistema -> BD : Salvar evento
+BD --> Sistema : Evento cadastrado
+
+Sistema --> Organizador : Evento criado com sucesso
+
+@enduml

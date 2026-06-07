@@ -1,0 +1,14 @@
+@startuml
+
+actor Usuario
+
+participant "Sistema" as Sistema
+database "Banco de Dados" as BD
+
+Usuario -> Sistema : Informar email e senha
+Sistema -> BD : Validar credenciais
+BD --> Sistema : Dados do usuário
+
+Sistema --> Usuario : Login realizado com sucesso
+
+@enduml
