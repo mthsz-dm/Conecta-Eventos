@@ -1,0 +1,26 @@
+@startuml
+
+actor Organizador
+
+participant "Frontend" as Frontend
+participant "API REST" as API
+participant "Serviço de Eventos" as Service
+database "PostgreSQL" as DB
+
+Organizador -> Frontend : Solicita lista de participantes
+
+Frontend -> API : GET /eventos/{id}/participantes
+
+API -> Service : consultarParticipantes(idEvento)
+
+Service -> DB : buscarInscricoes(idEvento)
+
+DB --> Service : lista de participantes
+
+Service --> API : participantes encontrados
+
+API --> Frontend : lista de participantes
+
+Frontend --> Organizador : Exibe participantes
+
+@enduml

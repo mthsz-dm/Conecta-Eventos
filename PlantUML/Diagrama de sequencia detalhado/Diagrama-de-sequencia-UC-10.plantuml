@@ -1,0 +1,30 @@
+@startuml
+
+actor Administrador
+
+participant "Frontend" as Frontend
+participant "API REST" as API
+participant "Serviço de Eventos" as Service
+database "PostgreSQL" as DB
+
+Administrador -> Frontend : Aprovar evento
+
+Frontend -> API : PUT /eventos/{id}/aprovar
+
+API -> Service : aprovarEvento(id)
+
+Service -> DB : localizarEvento(id)
+
+DB --> Service : dados do evento
+
+Service -> DB : atualizarStatus("Publicado")
+
+DB --> Service : status atualizado
+
+Service --> API : aprovação concluída
+
+API --> Frontend : sucesso
+
+Frontend --> Administrador : Evento aprovado
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+
+actor Administrador
+
+participant "Frontend" as Frontend
+participant "API REST" as API
+participant "Serviço de Relatórios" as Service
+database "PostgreSQL" as DB
+
+Administrador -> Frontend : Solicita relatório
+
+Frontend -> API : GET /relatorios
+
+API -> Service : gerarRelatorio()
+
+Service -> DB : consultarDados()
+
+DB --> Service : dados do sistema
+
+Service -> Service : gerar relatório
+
+Service --> API : relatório gerado
+
+API --> Frontend : relatório
+
+Frontend --> Administrador : Exibe relatório
+
+@enduml
