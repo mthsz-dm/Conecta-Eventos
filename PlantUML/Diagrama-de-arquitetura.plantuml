@@ -1,0 +1,26 @@
+@startuml
+
+skinparam componentStyle rectangle
+
+package "Conecta Eventos" {
+
+    [Frontend Web] as Frontend
+
+    [API REST] as API
+
+    [Serviço de Eventos] as Eventos
+
+    [Serviço de Usuários] as Usuarios
+
+    database "Banco de Dados\nPostgreSQL" as DB
+
+    Frontend --> API
+
+    API --> Eventos
+    API --> Usuarios
+
+    Eventos --> DB
+    Usuarios --> DB
+}
+
+@enduml
