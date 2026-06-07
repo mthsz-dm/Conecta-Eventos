@@ -1,0 +1,48 @@
+```plantuml
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Participante
+actor Organizador
+actor Administrador
+
+rectangle "Conecta Eventos" {
+
+    usecase "UC-01\nRealizar Cadastro" as UC01
+    usecase "UC-02\nRealizar Login" as UC02
+    usecase "UC-03\nConsultar Eventos" as UC03
+    usecase "UC-04\nInscrever-se em Evento" as UC04
+    usecase "UC-05\nCancelar Inscrição" as UC05
+
+    usecase "UC-06\nCriar Evento" as UC06
+    usecase "UC-07\nEditar Evento" as UC07
+    usecase "UC-08\nCancelar Evento" as UC08
+    usecase "UC-09\nConsultar Participantes" as UC09
+
+    usecase "UC-10\nAprovar Evento" as UC10
+    usecase "UC-11\nGerenciar Usuários" as UC11
+    usecase "UC-12\nEmitir Relatórios" as UC12
+}
+
+Participante --> UC01
+Participante --> UC02
+Participante --> UC03
+Participante --> UC04
+Participante --> UC05
+
+Organizador --> UC01
+Organizador --> UC02
+Organizador --> UC06
+Organizador --> UC07
+Organizador --> UC08
+Organizador --> UC09
+
+Administrador --> UC02
+Administrador --> UC10
+Administrador --> UC11
+Administrador --> UC12
+
+UC04 ..> UC03 : <<include>>
+
+@enduml
