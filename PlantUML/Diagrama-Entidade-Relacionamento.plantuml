@@ -1,0 +1,49 @@
+@startuml
+
+entity Usuario {
+    * id : BIGINT
+    --
+    nome : VARCHAR
+    email : VARCHAR
+    senha : VARCHAR
+    tipo_usuario : VARCHAR
+}
+
+entity Evento {
+    * id : BIGINT
+    --
+    titulo : VARCHAR
+    descricao : TEXT
+    data_evento : TIMESTAMP
+    local : VARCHAR
+    capacidade : INTEGER
+    status : VARCHAR
+    organizador_id : BIGINT
+}
+
+entity Inscricao {
+    * id : BIGINT
+    --
+    data_inscricao : TIMESTAMP
+    status : VARCHAR
+    participante_id : BIGINT
+    evento_id : BIGINT
+}
+
+entity Relatorio {
+    * id : BIGINT
+    --
+    tipo : VARCHAR
+    data_geracao : TIMESTAMP
+    administrador_id : BIGINT
+}
+
+Usuario ||--o{ Evento : organiza
+
+Usuario ||--o{ Inscricao : realiza
+
+Evento ||--o{ Inscricao : possui
+
+Usuario ||--o{ Relatorio : gera
+
+@enduml
