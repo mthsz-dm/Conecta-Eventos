@@ -1,0 +1,29 @@
+@startuml
+
+object Administrador
+object Frontend
+object API
+object ServicoEventos
+object BancoDeDados
+
+Administrador --> Frontend : 1: aprovarEvento()
+
+Frontend --> API : 2: aprovarEvento(id)
+
+API --> ServicoEventos : 3: aprovarEvento(id)
+
+ServicoEventos --> BancoDeDados : 4: localizarEvento()
+
+BancoDeDados --> ServicoEventos : 5: evento
+
+ServicoEventos --> BancoDeDados : 6: atualizarStatus()
+
+BancoDeDados --> ServicoEventos : 7: confirmado
+
+ServicoEventos --> API : 8: sucesso
+
+API --> Frontend : 9: sucesso
+
+Frontend --> Administrador : 10: eventoAprovado()
+
+@enduml

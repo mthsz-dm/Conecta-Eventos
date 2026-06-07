@@ -1,0 +1,27 @@
+@startuml
+
+object Administrador
+object Frontend
+object API
+object ServicoRelatorios
+object BancoDeDados
+
+Administrador --> Frontend : 1: solicitarRelatorio()
+
+Frontend --> API : 2: gerarRelatorio()
+
+API --> ServicoRelatorios : 3: gerarRelatorio()
+
+ServicoRelatorios --> BancoDeDados : 4: consultarDados()
+
+BancoDeDados --> ServicoRelatorios : 5: dados
+
+ServicoRelatorios --> ServicoRelatorios : 6: processarDados()
+
+ServicoRelatorios --> API : 7: relatorio
+
+API --> Frontend : 8: relatorio
+
+Frontend --> Administrador : 9: exibirRelatorio()
+
+@enduml

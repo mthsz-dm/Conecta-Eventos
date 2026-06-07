@@ -1,0 +1,25 @@
+@startuml
+
+object Organizador
+object Frontend
+object API
+object ServicoEventos
+object BancoDeDados
+
+Organizador --> Frontend : 1: solicitarParticipantes()
+
+Frontend --> API : 2: consultarParticipantes()
+
+API --> ServicoEventos : 3: consultarParticipantes(idEvento)
+
+ServicoEventos --> BancoDeDados : 4: buscarInscricoes()
+
+BancoDeDados --> ServicoEventos : 5: listaParticipantes
+
+ServicoEventos --> API : 6: participantes
+
+API --> Frontend : 7: participantes
+
+Frontend --> Organizador : 8: exibirParticipantes()
+
+@enduml
