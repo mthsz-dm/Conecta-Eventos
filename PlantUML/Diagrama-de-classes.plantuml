@@ -1,0 +1,63 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Usuario {
+    - id: Long
+    - nome: String
+    - email: String
+    - senha: String
+    + realizarLogin()
+}
+
+class Participante {
+    + inscreverEvento()
+    + cancelarInscricao()
+}
+
+class Organizador {
+    + criarEvento()
+    + editarEvento()
+    + cancelarEvento()
+}
+
+class Administrador {
+    + aprovarEvento()
+    + gerarRelatorio()
+}
+
+class Evento {
+    - id: Long
+    - titulo: String
+    - descricao: String
+    - data: Date
+    - local: String
+    - capacidade: Integer
+    - status: String
+}
+
+class Inscricao {
+    - id: Long
+    - dataInscricao: Date
+    - status: String
+}
+
+class Relatorio {
+    - id: Long
+    - dataGeracao: Date
+    - tipo: String
+}
+
+Participante --|> Usuario
+Organizador --|> Usuario
+Administrador --|> Usuario
+
+Organizador "1" --> "0..*" Evento : organiza
+
+Participante "1" --> "0..*" Inscricao : realiza
+
+Evento "1" --> "0..*" Inscricao : possui
+
+Administrador "1" --> "0..*" Relatorio : gera
+
+@enduml
