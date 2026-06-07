@@ -1,0 +1,24 @@
+@startuml
+
+node "Computador do Usuário" {
+
+    artifact "Navegador Web" as Browser
+
+}
+
+node "Servidor de Aplicação" {
+
+    artifact "Frontend Web" as Frontend
+    artifact "API REST" as API
+
+}
+
+database "Servidor PostgreSQL" as DB
+
+Browser --> Frontend : HTTPS
+
+Frontend --> API : HTTP/REST
+
+API --> DB : SQL
+
+@enduml
