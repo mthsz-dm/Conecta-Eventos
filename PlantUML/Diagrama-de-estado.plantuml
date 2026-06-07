@@ -1,0 +1,21 @@
+@startuml
+
+[*] --> Criado
+
+Criado --> PendenteAprovacao : Evento cadastrado
+
+PendenteAprovacao --> Publicado : Aprovação realizada
+
+PendenteAprovacao --> Cancelado : Evento rejeitado
+
+Publicado --> EmAndamento : Início do evento
+
+Publicado --> Cancelado : Cancelamento pelo organizador
+
+EmAndamento --> Encerrado : Término do evento
+
+Cancelado --> [*]
+
+Encerrado --> [*]
+
+@enduml
