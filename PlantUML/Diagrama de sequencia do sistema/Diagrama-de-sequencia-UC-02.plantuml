@@ -5,10 +5,19 @@ actor Usuario
 participant "Sistema" as Sistema
 database "Banco de Dados" as BD
 
+
 Usuario -> Sistema : Informar email e senha
+activate Usuario
+activate Sistema
+
 Sistema -> BD : Validar credenciais
+activate BD
+
 BD --> Sistema : Dados do usuário
+deactivate BD
 
 Sistema --> Usuario : Login realizado com sucesso
+deactivate Sistema
+deactivate Usuario
 
 @enduml

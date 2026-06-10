@@ -1,5 +1,7 @@
 @startuml
 
+autoactivate on
+
 actor Organizador
 
 participant "Frontend" as Frontend
@@ -8,19 +10,33 @@ participant "Serviço de Eventos" as Service
 database "PostgreSQL" as DB
 
 Organizador -> Frontend : Solicita lista de participantes
-
+activate Organizador
 Frontend -> API : GET /eventos/{id}/participantes
 
 API -> Service : consultarParticipantes(idEvento)
 
 Service -> DB : buscarInscricoes(idEvento)
 
-DB --> Service : lista de participantes
+alt Participantes encontrados
 
-Service --> API : participantes encontrados
+    DB --> Service : lista de participantes
 
-API --> Frontend : lista de participantes
+    Service --> API : participantes encontrados
 
-Frontend --> Organizador : Exibe participantes
+    API --> Frontend : lista de participantes
 
+    Frontend --> Organizador : Exibe participantes
+
+else Nenhum participante inscrito
+
+    DB --> Service : lista vazia
+
+    Service --> API : nenhum participante encontrado
+
+    API --> Frontend : lista vazia
+
+    Frontend --> Organizador : Nenhum participante inscrito
+
+end
+deactivate Organizador
 @enduml

@@ -1,5 +1,7 @@
 @startuml
 
+autoactivate on
+
 actor Administrador
 
 participant "Frontend" as Frontend
@@ -8,6 +10,7 @@ participant "Serviço de Eventos" as Service
 database "PostgreSQL" as DB
 
 Administrador -> Frontend : Aprovar evento
+activate Administrador
 
 Frontend -> API : PUT /eventos/{id}/aprovar
 
@@ -15,16 +18,31 @@ API -> Service : aprovarEvento(id)
 
 Service -> DB : localizarEvento(id)
 
-DB --> Service : dados do evento
+alt Evento encontrado
 
-Service -> DB : atualizarStatus("Publicado")
+    DB --> Service : dados do evento
 
-DB --> Service : status atualizado
+    Service -> DB : atualizarStatus("Publicado")
 
-Service --> API : aprovação concluída
+    DB --> Service : status atualizado
 
-API --> Frontend : sucesso
+    Service --> API : aprovação concluída
 
-Frontend --> Administrador : Evento aprovado
+    API --> Frontend : sucesso
 
+    Frontend --> Administrador : Evento aprovado
+
+else Evento não encontrado
+
+    DB --> Service : evento inexistente
+
+    Service --> API : erro
+
+    API --> Frontend : mensagem de erro
+
+    Frontend --> Administrador : Evento não localizado
+
+end
+
+deactivate Administrador
 @enduml

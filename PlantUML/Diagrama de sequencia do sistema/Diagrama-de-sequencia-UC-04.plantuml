@@ -1,17 +1,23 @@
 @startuml
 
+autoactivate on
+
 actor Participante
 
 participant "Sistema" as Sistema
 database "Banco de Dados" as BD
 
 Participante -> Sistema : Selecionar evento
+activate Participante
+
 Sistema -> BD : Verificar vagas disponíveis
+
 BD --> Sistema : Vagas disponíveis
 
 Sistema -> BD : Registrar inscrição
+
 BD --> Sistema : Inscrição salva
 
 Sistema --> Participante : Confirmação da inscrição
-
+deactivate Participante
 @enduml

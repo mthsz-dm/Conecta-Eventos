@@ -1,16 +1,29 @@
 @startuml
 
+autoactivate on
+
 actor Organizador
 
 participant "Sistema" as Sistema
 database "Banco de Dados" as BD
 
 Organizador -> Sistema : Informar dados do evento
+activate Organizador
 Sistema -> Sistema : Validar informações
 
-Sistema -> BD : Salvar evento
-BD --> Sistema : Evento cadastrado
+alt Dados válidos
 
-Sistema --> Organizador : Evento criado com sucesso
+    Sistema -> BD : Salvar evento
 
+    BD --> Sistema : Evento cadastrado
+
+    Sistema --> Organizador : Evento criado com sucesso
+
+else Dados inválidos
+
+    Sistema --> Organizador : Exibir mensagem de erro
+
+end
+
+deactivate Organizador
 @enduml

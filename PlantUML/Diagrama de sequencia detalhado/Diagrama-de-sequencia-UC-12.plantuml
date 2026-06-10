@@ -1,5 +1,7 @@
 @startuml
 
+autoactivate on
+
 actor Administrador
 
 participant "Frontend" as Frontend
@@ -8,21 +10,36 @@ participant "Serviço de Relatórios" as Service
 database "PostgreSQL" as DB
 
 Administrador -> Frontend : Solicita relatório
-
+activate Administrador
 Frontend -> API : GET /relatorios
 
 API -> Service : gerarRelatorio()
 
 Service -> DB : consultarDados()
 
-DB --> Service : dados do sistema
+alt Dados encontrados
 
-Service -> Service : gerar relatório
+    DB --> Service : dados do sistema
 
-Service --> API : relatório gerado
+    Service -> Service : gerar relatório
 
-API --> Frontend : relatório
+    Service --> API : relatório gerado
 
-Frontend --> Administrador : Exibe relatório
+    API --> Frontend : relatório
 
+    Frontend --> Administrador : Exibe relatório
+
+else Nenhum dado encontrado
+
+    DB --> Service : lista vazia
+
+    Service --> API : erro
+
+    API --> Frontend : mensagem
+
+    Frontend --> Administrador : Nenhum dado disponível
+
+end
+
+deactivate Administrador
 @enduml
