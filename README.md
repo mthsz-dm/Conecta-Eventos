@@ -189,20 +189,6 @@ Conecta-Eventos/
         ├── Diagrama-de-sequencia-UC-04.plantuml
         └── Diagrama-de-sequencia-UC-06.plantuml
 ```
-## 📝 Principais Casos de Uso
-ID	Caso de Uso
-UC-01	Realizar Cadastro
-UC-02	Realizar Login
-UC-03	Consultar Eventos
-UC-04	Inscrever-se em Evento
-UC-05	Cancelar Inscrição
-UC-06	Criar Evento
-UC-07	Editar Evento
-UC-08	Cancelar Evento
-UC-09	Consultar Participantes
-UC-10	Aprovar Evento
-UC-11	Gerenciar Usuários
-UC-12	Emitir Relatórios
 
 ## 👨‍💻 Autor
 
