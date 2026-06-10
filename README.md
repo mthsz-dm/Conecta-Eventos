@@ -45,6 +45,25 @@ Este projeto contempla apenas a fase de análise e projeto do sistema, incluindo
 
 ---
 
+## 📝 Principais Casos de Uso
+
+| ID | Caso de Uso |
+|----|-------------|
+| UC-01 | Realizar Cadastro |
+| UC-02 | Realizar Login |
+| UC-03 | Consultar Eventos |
+| UC-04 | Inscrever-se em Evento |
+| UC-05 | Cancelar Inscrição |
+| UC-06 | Criar Evento |
+| UC-07 | Editar Evento |
+| UC-08 | Cancelar Evento |
+| UC-09 | Consultar Participantes |
+| UC-10 | Aprovar Evento |
+| UC-11 | Gerenciar Usuários |
+| UC-12 | Emitir Relatórios |
+
+---
+
 ## ⚙️ Tecnologias Utilizadas
 
 ### Modelagem
@@ -114,27 +133,61 @@ O sistema segue uma arquitetura em camadas composta por:
 ## 📂 Estrutura do Projeto
 
 ```text
-Conecta-Eventos
+Conecta-Eventos/
 │
-├── Diagramas
-│   ├── Diagrama de comunicação
-│   ├── Diagrama de sequencia detalhado
-│   ├── Diagrama de sequencia do sistema
+├── LICENSE
+├── README.md
+├── Trabalho 2 - Documentação de Projeto.pdf
+│
+├── Diagramas/
+│   │
 │   ├── Diagrama-de-arquitetura.png
 │   ├── Diagrama-de-casos-de-uso.png
 │   ├── Diagrama-de-classes.png
 │   ├── Diagrama-de-componentes.png
 │   ├── Diagrama-de-estado.png
 │   ├── Diagrama-de-implantacao.png
-│   └── Diagrama-Entidade-Relacionamento.png
+│   ├── Diagrama-Entidade-Relacionamento.png
+│   │
+│   ├── Diagrama de comunicação/
+│   │   ├── Diagrama-de-comunicacao-UC-09.png
+│   │   ├── Diagrama-de-comunicacao-UC-10.png
+│   │   └── Diagrama-de-comunicacao-UC-12.png
+│   │
+│   ├── Diagrama de sequencia detalhado/
+│   │   ├── Diagrama-de-sequencia-UC-09.png
+│   │   ├── Diagrama-de-sequencia-UC-10.png
+│   │   └── Diagrama-de-sequencia-UC-12.png
+│   │
+│   └── Diagrama de sequencia do sistema/
+│       ├── Diagrama-de-sequencia-UC-02.png
+│       ├── Diagrama-de-sequencia-UC-04.png
+│       └── Diagrama-de-sequencia-UC-06.png
 │
-├── PlantUML
-│   ├── Diagrama de comunicação
-│   ├── Diagrama de sequencia detalhado
-│   └── Diagrama de sequencia do sistema
-│
-├── LICENSE
-└── README.md
+└── PlantUML/
+    │
+    ├── Diagrama-de-arquitetura.plantuml
+    ├── Diagrama-de-casos-de-uso.plantuml
+    ├── Diagrama-de-classes.plantuml
+    ├── Diagrama-de-componentes.plantuml
+    ├── Diagrama-de-estado.plantuml
+    ├── Diagrama-de-implantacao.plantuml
+    ├── Diagrama-Entidade-Relacionamento.plantuml
+    │
+    ├── Diagrama de comunicação/
+    │   ├── Diagrama-de-comunicacao-UC-09.plantuml
+    │   ├── Diagrama-de-comunicacao-UC-10.plantuml
+    │   └── Diagrama-de-comunicacao-UC-12.plantuml
+    │
+    ├── Diagrama de sequencia detalhado/
+    │   ├── Diagrama-de-sequencia-UC-09.plantuml
+    │   ├── Diagrama-de-sequencia-UC-10.plantuml
+    │   └── Diagrama-de-sequencia-UC-12.plantuml
+    │
+    └── Diagrama de sequencia do sistema/
+        ├── Diagrama-de-sequencia-UC-02.plantuml
+        ├── Diagrama-de-sequencia-UC-04.plantuml
+        └── Diagrama-de-sequencia-UC-06.plantuml
 ```
 ## 📝 Principais Casos de Uso
 ID	Caso de Uso
@@ -152,9 +205,7 @@ UC-11	Gerenciar Usuários
 UC-12	Emitir Relatórios
 
 ## 👨‍💻 Autor
-Nome
-Matheus Dias Mendes
 
-## 📄 Licença
+**Matheus Dias Mendes**
 
-Este projeto foi desenvolvido para fins acadêmicos na disciplina de Projeto de Software.
+Projeto desenvolvido para a disciplina de Projeto de Software.
