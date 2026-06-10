@@ -33,13 +33,16 @@ alt Evento encontrado
     Frontend --> Administrador : Evento aprovado
 
 else Evento não encontrado
-
+    activate  DB
     DB --> Service : evento inexistente
 
+    activate Service
     Service --> API : erro
 
+    activate API
     API --> Frontend : mensagem de erro
-
+    
+    activate  Frontend
     Frontend --> Administrador : Evento não localizado
 
 end

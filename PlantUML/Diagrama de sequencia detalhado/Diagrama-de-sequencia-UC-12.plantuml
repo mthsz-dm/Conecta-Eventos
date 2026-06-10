@@ -30,13 +30,15 @@ alt Dados encontrados
     Frontend --> Administrador : Exibe relatório
 
 else Nenhum dado encontrado
-
+    activate  DB
     DB --> Service : lista vazia
 
     Service --> API : erro
 
+    activate API
     API --> Frontend : mensagem
 
+    activate Frontend
     Frontend --> Administrador : Nenhum dado disponível
 
 end

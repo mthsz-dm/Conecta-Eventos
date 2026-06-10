@@ -28,13 +28,13 @@ alt Participantes encontrados
     Frontend --> Organizador : Exibe participantes
 
 else Nenhum participante inscrito
-
+    activate DB
     DB --> Service : lista vazia
-
+    activate Service
     Service --> API : nenhum participante encontrado
-
+    activate API
     API --> Frontend : lista vazia
-
+    activate Frontend
     Frontend --> Organizador : Nenhum participante inscrito
 
 end
